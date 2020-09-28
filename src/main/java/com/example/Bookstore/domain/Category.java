@@ -9,20 +9,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
+
 public class Category {
-    @Id
+	
+	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long categoryid;
+	
+		private Long categoryid;
 	private String name;
 	
-	@JsonManagedReference
+	@JsonBackReference
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 	private List<Book> books;
 	
-	public Category() {}
+	public Category() {
+		
+	}
 	
 	public Category(String name) {
 		super();
@@ -52,7 +57,4 @@ public class Category {
 	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
-	
-	
-	
 }

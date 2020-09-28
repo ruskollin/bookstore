@@ -22,9 +22,10 @@ public class Book {
 	private String isbn;
 	private double price;
 	
-	@JsonManagedReference
-	 @ManyToOne
-	    @JoinColumn(name = "categoryid")
+	
+     @ManyToOne
+	 @JoinColumn(name = "categoryid")
+	 @JsonManagedReference
 	 
 	    private Category category;
 	
@@ -92,11 +93,6 @@ public class Book {
 		} else {
 			
 			return "Book [title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn + ", price=" + price +"]";
-		}
-		
-		
+		}	
 	}
-	
-	
-
 }
