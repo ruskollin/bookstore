@@ -28,8 +28,22 @@ public class BookController {
 	@Autowired
 	private CategoryRepository crepository; 
 	
+	@RequestMapping(value={"/", "/home"})
+	public String homeSecure() {
+		return "home";
+	}
 	
-    @RequestMapping(value="booklist")
+	@RequestMapping(value="/login")
+	public String login() {
+		return "login";
+	} 
+	
+	@RequestMapping(value="/signout")
+	public String logout() {
+		return "signout";
+	} 
+	
+    @RequestMapping(value="/booklist")
     public String studentList(Model model) {	
         model.addAttribute("books", repository.findAll());
         return "booklist";

@@ -7,6 +7,9 @@
 </head>
 <body>
 	<h1>Books</h1>
+	
+	<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+         
     <table class="table table-striped">
 		<tr>
 		    <th>Author</th>
@@ -26,5 +29,8 @@
     	</tr>
      </table> 	
      <a href="/add" class="btn btn-success">Add Book</a>
+     
+     <a href="/signout" class="btn btn-success">Sign Out</a>
+ 
 </body>
 </html>
