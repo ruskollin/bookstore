@@ -21,10 +21,25 @@ body {
 }
 
 h1 { 
-	color: #fff; 
-	text-shadow: 0 0 10px rgba(0,0,0,0.3); 
-	letter-spacing:1px; 
-	text-align:center; 
+	color: #7c795d; 
+	font-family: 'Trocchi', serif; 
+	font-size: 45px; 
+	font-weight: normal; 
+	line-height: 48px; 
+	margin: 0; 
+}
+
+th, td {
+	color: #7c795d; 
+}
+
+h2 { 
+	color: #7c795d; 
+	font-family: 'Source Sans Pro', sans-serif; 
+	font-size: 28px; 
+	font-weight: 400; 
+	line-height: 32px; 
+	margin: 0 0 24px; 
 }
 
 button {
@@ -37,6 +52,26 @@ button {
 	border-radius: 6px;
 	display: inline-block;
 	transition: all 0.3s ease 0s;
+}
+
+label {
+	color: white;
+}
+
+th {
+	font-weight: 900;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid gray;
+  width: calc(50% - 10px);
+  margin: 50px auto;
+}
+
+#category {
+	width: 50%;
+	margin: auto;
 }
 
 input { 

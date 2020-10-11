@@ -1,10 +1,10 @@
 package com.example.Bookstore.web;
 
-
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -44,7 +44,7 @@ public class BookController {
 	} 
 	
     @RequestMapping(value="/booklist")
-    public String studentList(Model model) {	
+    public String bookList(Model model) {	
         model.addAttribute("books", repository.findAll());
         return "booklist";
     }
@@ -76,11 +76,12 @@ public class BookController {
     }    
 
   
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public String deleteStudent(@PathVariable("id") Long bookId, Model model) {
+    public String deleteBook(@PathVariable("id") Long bookId, Model model) {
     	repository.deleteById(bookId);
         return "redirect:../booklist";
-    }     
+    } 
     
 	@RequestMapping(value = "/process", method = RequestMethod.GET)
 	public String BookSubmit(@ModelAttribute Book book, Category category) {
