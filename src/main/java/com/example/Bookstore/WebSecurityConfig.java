@@ -25,7 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         	.antMatchers("/css/**").permitAll() // Enable css when logged out
         .	and()
         .authorizeRequests()
-        	.antMatchers("/", "/home").permitAll()
+        	.antMatchers("/", "/home", "/signup", "/saveuser").permitAll()
         	.and()
         .authorizeRequests()
         	.antMatchers("/admin/**").hasRole("ADMIN")

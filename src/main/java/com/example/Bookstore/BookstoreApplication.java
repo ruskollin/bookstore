@@ -47,7 +47,7 @@ public class BookstoreApplication {
 			}
 			
 			// Create users: admin/admin user/user
-			User user1 = new User("cat", "$2y$12$REhu9711ZeCHEOImaNFLvOgYf5ZCVpQl3FJz8FU/NrAaRFQsu6.5C", "cat@cat.fom", "USER");
+			User user1 = new User("cat", "$2y$12$REhu9711ZeCHEOImaNFLvOgYf5ZCVpQl3FJz8FU/NrAaRFQsu6.5C", "cat@cat.com", "USER");
 			User user2 = new User("admin", "$2y$12$KZ6BGeCwoB8.OJzf/4oXR..M0kT8wElTJSwZ8vuiV7DhqdFBxNIda", "admin@admin.com", "ADMIN");
 			urepository.save(user1);
 			urepository.save(user2);

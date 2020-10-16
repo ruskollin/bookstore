@@ -19,6 +19,7 @@
 		    <th><strong>ISBN</strong></th>
 		    <th><strong>Year</strong></th>
 		    <th><strong>Price</strong></th>
+		    <th><strong>Category</strong></th>
 		    <th></th>
 		    <th></th>
 		    <th sec:authorize="hasAuthority('ADMIN')"> </th>
@@ -30,6 +31,7 @@
     		<td th:text="${book.isbn}"></td>  		
     		<td th:text="${book.year}"></td> 
     		<td th:text="${book.price}"></td> 
+    		<td th:text="${book.category.name}"></td> 
     		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}"  class="btn btn-danger">Delete</a></td>    		
     		<td><a th:href="@{/modify/{id}(id=${book.id})}"  class="btn btn-warning">Modify</a></td>    
     	</tr>
