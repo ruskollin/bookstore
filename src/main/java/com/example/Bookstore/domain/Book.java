@@ -43,6 +43,14 @@ public class Book {
 		this.price = price;
 		this.category = category;
 	}
+	
+	public Long getId() {
+		return id;
+	}
+	public void setid(Long id) {
+		this.id = id;
+	}
+	
 	public String getTitle() {
 		return title;
 	}

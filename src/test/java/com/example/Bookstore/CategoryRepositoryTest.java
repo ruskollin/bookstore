@@ -1,6 +1,9 @@
 package com.example.Bookstore;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,5 +27,20 @@ public class CategoryRepositoryTest {
 		crepository.save(categories);
 		
 		assertNotNull(categories);
+	}
+	
+	@Test
+	public void findCategoryByName() {
+		List<Category> categories= crepository.findByName("Action and Adventure");
+
+		assertThat(categories.get(0).getName()).isEqualTo("Action and Adventure");
+	}
+	
+	@Test
+	public void deleteCategory() {
+		List<Category> categories = crepository.findByName("Mystery");
+		
+		crepository.deleteById(categories.get(0).getCategoryid());
+		assertThat(crepository.count()).isEqualTo(9);
 	}
 }

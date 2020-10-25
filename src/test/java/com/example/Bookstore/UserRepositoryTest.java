@@ -32,4 +32,13 @@ public class UserRepositoryTest {
 
 		assertThat(users.getEmail()).isEqualTo("cat@cat.com");
 	}
+	
+	@Test
+	public void deleteUser() {
+		User users = urepository.findByUsername("cat");
+		
+		urepository.deleteById(users.getId());
+		assertThat(urepository.count()).isEqualTo(1);
+	}
+	
 }

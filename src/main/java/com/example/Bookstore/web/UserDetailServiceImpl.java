@@ -10,9 +10,6 @@ import org.springframework.stereotype.Service;
 import com.example.Bookstore.domain.User;
 import com.example.Bookstore.domain.UserRepository;
 
-/**
- * This class is used by spring security to authenticate and authorize user
- **/
 @Service
 public class UserDetailServiceImpl implements UserDetailsService  {
 	private final UserRepository repository;

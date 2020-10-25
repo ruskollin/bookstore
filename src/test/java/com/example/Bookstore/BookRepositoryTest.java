@@ -39,4 +39,12 @@ public class BookRepositoryTest {
 		assertThat(books).hasSize(1);
 		assertThat(books.get(0).getTitle()).isEqualTo("Alice in Wonderland");
 	}
+	
+	@Test
+	public void deleteBook() {
+		List<Book> books = repository.findByAuthor("Bram Stoker");
+		
+		repository.deleteById(books.get(0).getId());
+		assertThat(repository.count()).isEqualTo(1);
+	}
 }
