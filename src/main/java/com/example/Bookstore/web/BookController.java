@@ -97,6 +97,7 @@ public class BookController {
     public String editStudent(@PathVariable("id") Long bookId, Model model) {
     	model.addAttribute("book", repository.findById(bookId));
     	model.addAttribute("categories", crepository.findAll());
+    	repository.deleteById(bookId);
     	return "modifybook";
     }   
  }
