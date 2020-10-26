@@ -25,11 +25,11 @@
 		    <th>Role</th>
 		    <th> </th>
 		</tr>  
-    	<tr th:each = "user : ${users}">
-    		<td th:text="${user.username}"></td>
-    		<td th:text="${user.passwordHash}"></td>
-    		<td th:text="${user.email}"></td>
-    		<td th:text="${user.role}"></td> 		
+    	<tr th:each = "userPerson : ${userPersons}">
+    		<td th:text="${userPerson.username}"></td>
+    		<td th:text="${userPerson.passwordHash}"></td>
+    		<td th:text="${userPerson.email}"></td>
+    		<td th:text="${userPerson.role}"></td> 		
  			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-xs btn-danger">Delete</a></td>    		
     	</tr>
      </table>

@@ -9,7 +9,7 @@
 	<div class="container">
 		<h2>Add user</h2>
 		<div class="col-md-4">
-		<form th:object="${user}" th:action="@{save}" action="#" method="post">
+		<form th:object="${userPerson}" th:action="@{save}" action="#" method="post">
 		  	<label for="username">Username</label>
 			<input type="text" id="username" th:field="*{username}" class="form-control"/>
 			<div style="clear: both; display: block; height: 10px;"></div>

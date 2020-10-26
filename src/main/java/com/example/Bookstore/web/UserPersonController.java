@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.Bookstore.domain.SignupForm;
-import com.example.Bookstore.domain.User;
+import com.example.Bookstore.domain.UserPerson;
 import com.example.Bookstore.domain.UserRepository;
 
 @Controller
-public class UserController {
+public class UserPersonController {
 	@Autowired
     private UserRepository repository; 
 	
@@ -42,7 +42,7 @@ public class UserController {
 		    	BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
 		    	String hashPwd = bc.encode(pwd);
 	
-		    	User newUser = new User();
+		    	UserPerson newUser = new UserPerson();
 		    	newUser.setPasswordHash(hashPwd);
 		    	newUser.setUsername(signupForm.getUsername());
 		    	newUser.setRole("USER");
