@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+
+<title>Book Info</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+
+
+</head>
+
+<body>
+	<!-- Header -->
+	<header>
+		<div>
+			<p>About the Book</p>
+		</div>
+	</header>
+
+	<div>
+		<p>Book Information:</p>
+
+		<p th:text="${id}"></p>
+		<p th:text="${author}"></p>
+		<p th:text="${book}"></p>
+
+
+		<ul th:each="book: ${books}">
+			<li th:text="${book.author}"></li>
+		</ul>
+
+		<table>
+			<tr>
+
+				<th><strong>Author</strong></th>
+				<th><strong>Title</strong></th>
+				<th><strong>ISBN</strong></th>
+				<th><strong>Year</strong></th>
+				<th><strong>Price</strong></th>
+				<th><strong>Category</strong></th>
+				<th></th>
+				<th></th>
+			</tr>
+
+			<tr th:each="book : ${books}">
+				<td th:text="${book.author}"></td>
+				<td th:text="${book.title}"></td>
+				<td th:text="${book.isbn}"></td>
+				<td th:text="${book.year}"></td>
+				<td th:text="${book.price}"></td>
+				<td th:text="${book.category.name}"></td>
+			</tr>
+		</table>
+
+		<form th:object="${book}" th:action="@{/process}" action="#"
+			method="get">
+
+			<label for="title">Title</label> <input type="text" id="title"
+				th:field="*{title}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<label for="author">Author</label> <input type="text" id="author"
+				th:field="*{author}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<label for="year">Year</label> <input type="text" id="year"
+				th:field="*{year}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<label for="isbn">ISBN</label> <input type="text" id="isbn"
+				th:field="*{isbn}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<label for="price">Price</label> <input type="text" id="price"
+				th:field="*{price}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+
+			<label for="category">Category</label> <select id="category"
+				th:field="*{category}" class="form-control">
+				<option th:each="category: ${categories}"
+					th:value="${category.categoryid}" th:text="${category.name}"></option>
+			</select>
+			<div style="clear: both; display: block; height: 30px;"></div>
+
+			<button type="submit" value="Save">Save</button>
+		</form>
+		
+		<table>
+		<tr th:each="book : ${books}">
+			<td th:text="*{book.author}"></td>
+		</tr>
+		</table>
+		
+
+	</div>
+
+</body>
+</html>

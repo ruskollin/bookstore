@@ -60,7 +60,6 @@ public class BookController {
     }       
     
   
-   
     @RequestMapping(value = "/add")
     public String addStudent(Model model){
     	model.addAttribute("book", new Book());
@@ -85,10 +84,8 @@ public class BookController {
     
 	@RequestMapping(value = "/process", method = RequestMethod.GET)
 	public String BookSubmit(@ModelAttribute Book book, Category category) {
-        
 		repository.save(book);
 		crepository.save(category);
-
 		return "redirect:/booklist";
 	}
 
@@ -97,8 +94,14 @@ public class BookController {
     public String editStudent(@PathVariable("id") Long bookId, Model model) {
     	model.addAttribute("book", repository.findById(bookId));
     	model.addAttribute("categories", crepository.findAll());
-    	repository.deleteById(bookId);
     	return "modifybook";
     }   
+    
+    @RequestMapping(value = "/show/{id}", method = RequestMethod.GET)
+    public String showBook(@PathVariable("id") Long bookId, Model model) {
+    	model.addAttribute("book", repository.findById(bookId));
+    	model.addAttribute("categories", crepository.findAll());
+        return "example";
+    } 
  }
 
