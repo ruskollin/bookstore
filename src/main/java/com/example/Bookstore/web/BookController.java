@@ -17,6 +17,8 @@ import com.example.Bookstore.domain.Book;
 import com.example.Bookstore.domain.BookRepository;
 import com.example.Bookstore.domain.Category;
 import com.example.Bookstore.domain.CategoryRepository;
+import com.example.Bookstore.domain.UserPerson;
+import com.example.Bookstore.domain.UserRepository;
 
 
 
@@ -27,6 +29,9 @@ public class BookController {
 
 	@Autowired
 	private CategoryRepository crepository; 
+	
+	@Autowired
+	private UserRepository urepository; 
 	
 	@RequestMapping(value={"/", "/home"})
 	public String homeSecure() {
@@ -103,5 +108,24 @@ public class BookController {
     	model.addAttribute("categories", crepository.findAll());
         return "example";
     } 
+    
+    @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+    public String saveUser(UserPerson userPerson){
+        urepository.save(userPerson);
+        return "redirect:userlist";
+    }  
+    
+	@RequestMapping(value="/addUser")
+	public String goToAddUser(Model model) {
+		model.addAttribute("userPerson", new UserPerson());
+		return "addUser";
+	} 
+    
+    @RequestMapping(value="/userlist")
+    public String userList(Model model) {	
+        model.addAttribute("users", urepository.findAll());
+        return "userlist";
+    }
+    
  }
 

@@ -3,18 +3,20 @@
 <head>
     <title>Add User</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+	<link type="text/css" rel="stylesheet" href="/css/login.css" th:href="@{css/login.css}" />
+   		
 </head>
 <body>
 	<div class="container">
-		<h2>Add user</h2>
-		<div class="col-md-4">
-		<form th:object="${userPerson}" th:action="@{save}" action="#" method="post">
+		<h1>Add user</h1> <br><br>
+		<div>
+		<form th:object="${userPerson}" th:action="@{../saveUser}" action="#" method="post">
 		  	<label for="username">Username</label>
 			<input type="text" id="username" th:field="*{username}" class="form-control"/>
 			<div style="clear: both; display: block; height: 10px;"></div>
 		  	<label for="password">Password</label>
-			<input type="text" id="password" th:field="*{password}" class="form-control"/>
+			<input type="text" id="password" th:field="*{passwordHash}" class="form-control"/>
 			<div style="clear: both; display: block; height: 10px;"></div>
 		  	<label for="email">Email</label>
 			<input type="text" th:field="*{email}" class="form-control"/>

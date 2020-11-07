@@ -42,6 +42,8 @@
      <a href="/add" class="btn btn-success">Add Book</a>
      
      <a href="/signout" class="btn btn-success">Sign Out</a>
+     
+     <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/userlist}" class="btn btn-xs btn-success">User List</a>
  
 </body>
 </html>

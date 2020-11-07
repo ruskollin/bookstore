@@ -23,7 +23,7 @@ public class UserPerson {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "role", nullable = false)
+    @Column(name = "role", nullable = true)
     private String role;
     
     public UserPerson() {

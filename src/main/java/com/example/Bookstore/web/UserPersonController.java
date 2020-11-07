@@ -18,13 +18,14 @@ import com.example.Bookstore.domain.UserRepository;
 @Controller
 public class UserPersonController {
 	@Autowired
-    private UserRepository repository; 
+    private UserRepository urepository; 
 	
     @RequestMapping(value = "/signup")
     public String addStudent(Model model){
     	model.addAttribute("signupform", new SignupForm());
         return "signup";
     }	
+    
     
     /**
      * Create new user
@@ -45,9 +46,10 @@ public class UserPersonController {
 		    	UserPerson newUser = new UserPerson();
 		    	newUser.setPasswordHash(hashPwd);
 		    	newUser.setUsername(signupForm.getUsername());
+		    	newUser.setEmail(signupForm.getEmail());
 		    	newUser.setRole("USER");
-		    	if (repository.findByUsername(signupForm.getUsername()) == null) { // Check if user exists
-		    		repository.save(newUser);
+		    	if (urepository.findByUsername(signupForm.getUsername()) == null) { // Check if user exists
+		    		urepository.save(newUser);
 		    	}
 		    	else {
 	    			bindingResult.rejectValue("username", "err.username", "Username already exists");    	
